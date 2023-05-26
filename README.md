@@ -222,7 +222,7 @@ If you find this repo useful for your research, please consider citing our paper
   year      = {2023}
 }
 ```
-## Acknowledgement
+## Acknowledgements
 
 Thanks for the dataset from https://github.com/headacheboy/data-of-multimodal-sarcasm-detection
 
