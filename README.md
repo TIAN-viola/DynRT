@@ -202,7 +202,7 @@ The configuration files are in the folder `config/`. A configuration file templa
 
 ## CheckList 
 
-We train our model on one GeForce RTX 2080 Ti GPU for nearly 30 minutes for one run.
+We train our model on GeForce RTX 2080 Ti GPUs.
 
 We take the average results of  5 runs for reports.
 
