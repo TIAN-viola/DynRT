@@ -1,0 +1,104 @@
+{
+    "info": {
+        "name": "DynRT",
+        "log": {
+            "name": ""
+        },
+        "device": [
+            0
+        ],
+        "test_on_checkpoint": "none",
+        "train_on_checkpoint": "none"
+    },
+    "opt": {
+        "seed": 2,
+        "dataloader": {
+            "requires": {
+                "tokenizer_roberta": {
+                    "path": "roberta-base/"
+                }
+            },
+            "loaders": {
+                "text": {
+                    "data_path": "input/prepared_clean/",
+                    "len": 100,
+                    "pad": 1
+                },
+                "img": {
+                    "data_path": "input/prepared_clean/",
+                    "transform_image": "image_tensor/"
+                },
+                "label": {
+                    "data_path": "input/prepared_clean/",
+                    "test_label": true
+                }
+            },
+            "batch_size": 32,
+            "pin_memory": true,
+            "num_workers": 0,
+            "shuffle": true
+        },
+        "mode": [
+            "train",
+            "valid",
+            "test"
+        ],
+        "checkpoint_step": 50,
+        "modelopt": {
+            "name": "DynRT",
+            "input1": "text",
+            "input2": "img",
+            "input3": "text_mask",
+            "layer": 4,
+            "tau_max": 10,
+            "ORDERS": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "IMG_SCALE": 7,
+            "dropout": 0.5,
+            "hidden_size": 768,
+            "ffn_size": 768,
+            "multihead": 2,
+            "routing": "hard",
+            "BINARIZE": false,
+            "len": 100,
+            "glimpses": 1,
+            "mlp_size": 768,
+            "output_size": 768,
+            "orders": 4,
+            "pooling": "avg",
+            "classifier": "both",
+            "roberta_path": "roberta-base/",
+            "roberta_layer": 1,
+            "vitmodel": "vit_base_patch32_224",
+            "finetune": false
+        },
+        "optimizeropt": {
+            "name": "Adam",
+            "lr": 1e-06,
+            "weight_decay": 0.01,
+            "params": {
+                "bertl_text": {
+                    "lr": 3e-07
+                },
+                "vit": {
+                    "lr": 3e-07,
+                    "weight_decay": 0.01
+                },
+                "trar": {
+                    "lr": 1e-06,
+                    "weight_decay": 0.01
+                },
+                "classifier": {}
+            }
+        },
+        "lossopt": {
+            "name": "CrossEntropyLoss"
+        },
+        "total_epoch": 15,
+        "clip": 10
+    }
+}
