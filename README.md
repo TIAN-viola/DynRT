@@ -219,6 +219,7 @@ If you find this repo useful for your research, please consider citing our paper
   title     = {Dynamic Routing Transformer Network for Multimodal Sarcasm Detection},
   booktitle = {Proceedings of the 61th Annual Meeting of the Association for Computational Linguistics},
   publisher = {Association for Computational Linguistics},
+  pages = {2468--2480},
   year      = {2023}
 }
 ```
